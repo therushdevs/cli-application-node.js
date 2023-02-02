@@ -1,0 +1,17 @@
+{
+  "name": "kelp-bank",
+  "version": "1.0.0",
+  "description": "An Assignment by Kelp",
+  "main": "index.js",
+  "scripts": {
+    "test": "kelp-bank"
+  },
+  "author": "Rushikesh Kumbhar",
+  "license": "ISC",
+  "dependencies": {
+    "commander": "^10.0.0"
+  },
+  "bin": {
+    "kelp-bank": "index.js"
+  }
+}
