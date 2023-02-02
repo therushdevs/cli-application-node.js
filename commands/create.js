@@ -14,9 +14,9 @@ async function create (accNo, accName) {
     }
     // console.log(newAccount.name)
 
-    if (fs.existsSync(path.join(__dirname, 'bankdetails.json'))){
+    if (fs.existsSync(path.join(__dirname, 'bankdb.json'))){
         // If data exist already:
-        accDetails = JSON.parse(await fsPromises.readFile(path.join( __dirname,'bankdetails.json')))
+        accDetails = JSON.parse(await fsPromises.readFile(path.join( __dirname,'bankdb.json')))
         for (var i = 0; i < accDetails.length; i++){
             if (accDetails[i].accNo == accNo) {
                 accExist = true;
@@ -28,7 +28,7 @@ async function create (accNo, accName) {
 
     if (!accExist){
         accDetails.push(newAccount)
-        await fsPromises.writeFile(path.join( __dirname,'bankdetails.json'), JSON.stringify(accDetails), 'utf8')
+        await fsPromises.writeFile(path.join( __dirname,'bankdb.json'), JSON.stringify(accDetails), 'utf8')
         // .then(()=>{
         //     console.log('Data added successfully.')
         // })

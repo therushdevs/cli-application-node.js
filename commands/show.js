@@ -4,8 +4,8 @@ const path = require("path")
 
 async function show (accNo) {
     var accExist = false
-    if (fs.existsSync(path.join(__dirname, 'bankdetails.json'))){
-        var accDetails = JSON.parse(await fsPromises.readFile(path.join( __dirname,'bankdetails.json')))
+    if (fs.existsSync(path.join(__dirname, 'bankdb.json'))){
+        var accDetails = JSON.parse(await fsPromises.readFile(path.join( __dirname,'bankdb.json')))
         for (var i = 0; i < accDetails.length; i++){
             if (accDetails[i].accNo == accNo) {
                 console.log(`${accDetails[i].name} ${accDetails[i].balance}`)

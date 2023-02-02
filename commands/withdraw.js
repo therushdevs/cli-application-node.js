@@ -4,12 +4,12 @@ const path = require("path")
 
 async function withdraw (accNo, amount) {
     var accExist = false
-    if (fs.existsSync(path.join(__dirname, 'bankdetails.json'))){
-        var accDetails = JSON.parse(await fsPromises.readFile(path.join( __dirname,'bankdetails.json')))
+    if (fs.existsSync(path.join(__dirname, 'bankdb.json'))){
+        var accDetails = JSON.parse(await fsPromises.readFile(path.join( __dirname,'bankdb.json')))
         for (var i = 0; i < accDetails.length; i++){
             if (accDetails[i].accNo == accNo && accDetails[i].balance >= amount) {
                 accDetails[i].balance -= (Number)(amount)
-                await fsPromises.writeFile(path.join(__dirname, 'bankdetails.json'), JSON.stringify(accDetails), 'utf8')
+                await fsPromises.writeFile(path.join(__dirname, 'bankdb.json'), JSON.stringify(accDetails), 'utf8')
                     // .then(() => {
                     //     console.log(`Transaction Successful\n acc no. ${accNo}\n current bal. ${accDetails[i].balance}`)
                     // })
